@@ -9,3 +9,4 @@ filepath = "dane_AG/low-dimensional/f1_l-d_kp_10_269"
 
 backpack_items = rf.BackpackItems(filepath)
 #print(backpack_items.item_value)
+#test vvs
