@@ -1,27 +1,27 @@
-class EntryData:
-    def __init__(self, filepath):
-        self.filepath = filepath
-
-       
-        self.backpack_items_list = []
-    
 
 class BackpackItems:
     def __init__(self, filepath):
         self.filepath = filepath
 
-        self.bakcpack_capacity = self.read_file(0)
-        self.items_amout = 1
+        self.backpack_capacity = self.read_line(0,0)
+        self.amount_of_items_to_choose = self.read_line(0,1)
 
-        self.item_id = 1
-        #self.item_value = self.read_file(self.item_id)
-        self.item_size = 1
+        self.item_value = self.read_file(0)
+        self.item_size = self.read_file(1)
 
-    def read_file(self,id):
+    def read_line(self,id,column):
         with open(self.filepath, "r") as f:
+
             line = f.read().split("\n")
-            print(type(line[id])) # int(line[1])
-            print(line[id])
+            
+            return int(line[id].split(" ")[column])
 
-            return line[id].split(" ")
+    def read_file(self,value_or_size=0): #0 for value, 1 for size 
+        with open(self.filepath, "r") as f:
+            item_data = []
 
+            for i in f.read().split("\n"):
+                item_data.append(i.split(" ")[value_or_size])
+            del item_data[0]
+                
+            return item_data
