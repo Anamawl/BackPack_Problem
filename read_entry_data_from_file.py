@@ -23,3 +23,5 @@ class BackpackItems:
             print(type(line[id])) # int(line[1])
             print(line[id])
 
+            return line[id].split(" ")
+
